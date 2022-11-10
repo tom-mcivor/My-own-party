@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { getGreeting } from '../apiClient'
+import Excuses from './Excuses'
 
 const App = () => {
   const [greeting, setGreeting] = useState('')
