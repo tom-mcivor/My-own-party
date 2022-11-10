@@ -49,11 +49,15 @@ function Excuses() {
                 value={excuse.excuse}
                 checked={selected.excuseId === excuse.id}
                 onChange={(e) => handleChange(e, excuse.id)}
+
               />
               {excuse.excuse}
+              <br />
             </label>
+
           )
         })}
+        <br />
         <button>Submit your Excuse</button>
       </form>
     </>
