@@ -9,15 +9,21 @@ import Image from './Image'
 
 
 const App = () => {
+  const [history, setHistory] = useState([])
   return (
     <>
     <Header />
       <Image/>
-      <Activities />
-      <Excuses />
+      <Excuses setHistory={setHistory} history={history}/>
+      <Activities history={history}/>
     <Footer/>  
     </>
   )
 }
 
 export default App
+
+//History
+// Activity: Excuse
+// Activity: Excuse
+// Activity: Excuse
