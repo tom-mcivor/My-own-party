@@ -14,3 +14,8 @@ export function getExcuses() {
     .get(`https://excuser.herokuapp.com/v1/excuse/3`)
     .then((res) => res.body)
 }
+
+//get images api?
+export function getImages() {
+  return request.get('').then((res) => res)
+}
