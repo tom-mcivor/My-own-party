@@ -5,5 +5,12 @@ export function getGreeting() {
 }
 
 export function getActivities() {
-  return request.get('https://www.boredapi.com/api/activity/').then((res) => res.body.activity)
+  return request
+    .get('https://www.boredapi.com/api/activity/')
+    .then((res) => res.body.activity)
+}
+export function getExcuses() {
+  return request
+    .get(`https://excuser.herokuapp.com/v1/excuse/3`)
+    .then((res) => res.body)
 }

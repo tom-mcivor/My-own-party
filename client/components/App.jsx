@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { getGreeting, getActivities } from '../apiClient'
 
 import Activities from './Activities'
+import Excuses from './Excuses'
 
 const App = () => {
   const [greeting, setGreeting] = useState('')
@@ -23,8 +24,7 @@ const App = () => {
 
   return (
     <>
-
-    <Activities/>
+      <Activities />
 
       {count}
       <h1>{greeting}</h1>
