@@ -14,7 +14,9 @@ html{
 footer{
   position: absolute;
   left: 40%;
-  bottom: 10%;
+  bottom: 5%;
+  display:flex;
+  justify-content: center;
 }
 
 
