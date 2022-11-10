@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { getGreeting } from '../apiClient'
+import { getGreeting, getActivities } from '../apiClient'
+
+import Activities from './Activities'
 import Excuses from './Excuses'
 
 const App = () => {
@@ -22,6 +24,8 @@ const App = () => {
 
   return (
     <>
+      <Activities />
+
       {count}
       <h1>{greeting}</h1>
       {isError && (
