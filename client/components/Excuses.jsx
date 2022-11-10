@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { getExcuses } from '../apiClient'
+import { getExcuses , getActivities} from '../apiClient'
 
-function Excuses() {
+function Excuses(props) {
   const [excusesData, setExcusesData] = useState([])
   const [error, setError] = useState(false)
   const [selected, setSelected] = useState({ excuseId: '', excuse: '' })
+  const [activities, setActivities] = useState(null)
 
   function fetchExcuses(excuseSelected) {
     getExcuses(excuseSelected)
@@ -17,7 +18,24 @@ function Excuses() {
         setError('Something went wrong!')
       })
   }
+
+  function fetchActivities(){
+    getActivities()
+    .then((res) => {
+
+      setActivities(res)
+
+      console.log(res)
+
+    })
+    .catch((err) => {
+      console.error(err.message)
+    })
+  }
+
+
   useEffect(() => {
+    fetchActivities()
     fetchExcuses()
   }, [])
 
@@ -34,12 +52,16 @@ function Excuses() {
 
   function handleSubmit(event) {
     event.preventDefault()
-    fetchExcuses(selected)
+    props.setHistory([...props.history,{...selected, activity:activities}])
+    setSelected({ excuseId: '', excuse: '' })
+    fetchActivities()
+    fetchExcuses()
   }
 
   return (
     //radio button with three excuses option
     <>
+    <h2>{activities}</h2>
       <form onSubmit={handleSubmit}>
         {excusesData.map((excuse, i) => {
           return (
@@ -49,15 +71,11 @@ function Excuses() {
                 value={excuse.excuse}
                 checked={selected.excuseId === excuse.id}
                 onChange={(e) => handleChange(e, excuse.id)}
-
               />
               {excuse.excuse}
-              <br />
             </label>
-
           )
         })}
-        <br />
         <button>Submit your Excuse</button>
       </form>
     </>
