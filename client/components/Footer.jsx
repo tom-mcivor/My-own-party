@@ -4,6 +4,7 @@ function Footer() {
   return (
     <footer><p>Made by Mugi, Manu, Tom and James</p></footer>
 
+
   )
 }
 
