@@ -4,16 +4,25 @@
  
 }
 
-
 html{
-
-  background-color: rgba(137, 43, 226, 0.396);
+  background-color: #faeb2c;
+  color: #3d144c
+  /* background-color: rgba(137, 43, 226, 0.396); */
   
 }
+
+.radioButton {
+  margin: 15px;
+  font-size: 20px;
+}
+
+ul {
+  list-style-type: none;
+}
+
  footer{
   opacity: .7;
 } 
-
 
 img{
   width: 400px;
@@ -21,26 +30,19 @@ img{
   border-width: 2px;
 }
 
-
-
 #app > form{
   text-align: left;
   display:flex;
   justify-content: center;
   flex-direction: column;
-place-content: center;
-place-items: center;
+  place-content: center;
+  place-items: center;
 }
 
-
-
 #app > form > button{
-
   width: auto;
-
-
-  color: #db3eb1;
-  border: 6px solid #db3eb1;
+  color: #f52789;
+  border: 6px solid #f52789;
   border-radius:15px;
   padding: 15px 25px;
   font-size: 15px;
@@ -57,4 +59,31 @@ place-items: center;
   color: black;
   background-color: #db3eb1;
   filter: drop-shadow(0 0 20px #db3eb1) contrast(2) brightness(2);
+}
+
+.neon-head {
+  animation: flicker 1.5s infinite alternate;
+  color: #f52789;
+}
+
+/* Flickering animation */
+@keyframes flicker {
+    
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+
+      text-shadow:
+      0 0 4px #fff,
+      0 0 11px #fff,
+      0 0 19px #fff,
+      0 0 40px #fce5ff,
+      0 0 80px #fce5ff,
+      0 0 90px #fce5ff,
+      0 0 100px #fce5ff,
+      0 0 150px #fce5ff;
+  
+  }
+  
+  20%, 24%, 55% {        
+      text-shadow: none;
+  }    
 }

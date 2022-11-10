@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { getExcuses , getActivities} from '../apiClient'
+import { getExcuses, getActivities } from '../apiClient'
 
 function Excuses(props) {
   const [excusesData, setExcusesData] = useState([])
@@ -19,20 +19,17 @@ function Excuses(props) {
       })
   }
 
-  function fetchActivities(){
+  function fetchActivities() {
     getActivities()
-    .then((res) => {
+      .then((res) => {
+        setActivities(res)
 
-      setActivities(res)
-
-      console.log(res)
-
-    })
-    .catch((err) => {
-      console.error(err.message)
-    })
+        console.log(res)
+      })
+      .catch((err) => {
+        console.error(err.message)
+      })
   }
-
 
   useEffect(() => {
     fetchActivities()
@@ -52,7 +49,7 @@ function Excuses(props) {
 
   function handleSubmit(event) {
     event.preventDefault()
-    props.setHistory([...props.history,{...selected, activity:activities}])
+    props.setHistory([...props.history, { ...selected, activity: activities }])
     setSelected({ excuseId: '', excuse: '' })
     fetchActivities()
     fetchExcuses()
@@ -61,7 +58,9 @@ function Excuses(props) {
   return (
     //radio button with three excuses option
     <>
-    <h2>{activities}</h2>
+      <h2>Hey hey! How about we ...</h2>
+      <h2>{activities}?</h2>
+      <h3>Hmmmmm actually </h3>
       <form onSubmit={handleSubmit}>
         {excusesData.map((excuse, i) => {
           return (
