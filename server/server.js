@@ -11,12 +11,10 @@ server.use(cors('*'))
 
 //create serverside api to grab images?
 server.get('/api/v1/images', (req, res) => {
-  request
-    .get('images')
-    .then((res) => {})
-    .catch((err) => {
-      console.log(err)
-      res.send('err')
-    })
+
+      res.sendfile('./server/public/images/image1.jpg')
+
 })
 module.exports = server
+
+

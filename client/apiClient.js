@@ -17,5 +17,8 @@ export function getExcuses() {
 
 //get images api?
 export function getImages() {
-  return request.get('').then((res) => res)
+  return request
+  .get('http:localhost:3000/api/v1/images')
+  .then((res) => res.body)
+  // return request.get('').then((res) => res)
 }
