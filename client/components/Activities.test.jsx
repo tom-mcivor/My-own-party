@@ -1,8 +1,7 @@
 import nock from 'nock'
-// import { getExcuses, getActivities } from './apiClient'
 
-import { getActivities } from './apiClient'
 
+import { getActivities } from '../apiClient'
 
 
 // describe('geActivity', () => {
