@@ -1,16 +1,24 @@
 import nock from 'nock'
-import { getExcuses, getActivities } from './apiClient'
+// import { getExcuses, getActivities } from './apiClient'
 
-//test for getExcuses API call
-describe('getExcuses', () => {
-  it.todo('get 3 excuses data from api')
-  //add mock call here
-  //test return response
-})
+import { getActivities } from './apiClient'
 
-//test for getActivities API call
-describe('getActivites', () => {
-  it.todo('get 1 activity data from api')
-  // add mock call here
-  // test return response
+
+
+// describe('geActivity', () => {
+it('gets activity from the api', () => {
+  const scope = nock('https://www.boredapi.com/api/activity')
+    .get('/')
+    .reply(200, {
+      activity: 'Look at your finances and find one way to save money',
+    })
+
+  return getActivities().then((boredActivity) => {
+    expect(boredActivity).toContain(
+      'Look at your finances and find one way to save money'
+    )
+    expect(scope.isDone()).toBe(true)
+  })
 })
+// })
+
