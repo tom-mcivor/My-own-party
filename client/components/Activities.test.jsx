@@ -1,34 +1,35 @@
+import React from 'react'
+import '@testing-library/jest-dom'
 
-import React from "react"
-
-
-import { screen, render } from "@testing-library/react"
-
+import { screen, render } from '@testing-library/react'
 
 import Activities from './Activities.jsx'
 
-describe('Color component tests:', () => {
-  it('displays the color prop as text', () => {
+describe('Activities component tests:', () => {
+  it('displays the text', () => {
     const props = {
-      color: 'purple'
+      history: [{ activity: 'Playball', excuse: 'No Ball' }],
     }
 
     render(<Activities {...props}></Activities>)
 
-    const colorHeading = screen.getByRole('heading')
-    expect(colorHeading).toBeInTheDocument()
-    
-  expect(colorHeading).toHaveTextContent(props.color)
+    const activityHeading = screen.getByRole('heading')
+    console.log(activityHeading)
+    expect(activityHeading).toBeInTheDocument()
+
+    expect(activityHeading).toHaveTextContent(
+      'Your Activity an Excuse combo for next time 😉'
+    )
   })
-  it('displays the color prop as text2', () => {
+  it('displays the history prop as text', () => {
     const props = {
-      color: 'red'
+      history: [{ activity: 'Playball', excuse: 'No Ball' }],
     }
 
     render(<Activities {...props}></Activities>)
 
-    const colorHeading = screen.getByRole('heading')
-    expect(colorHeading).toBeInTheDocument()
-    expect(colorHeading).toHaveTextContent(props.Activities)
+    const listItem = screen.getByRole('listitem')
+    expect(listItem).toBeInTheDocument()
+    expect(listItem).toHaveTextContent('Playball: No Ball')
   })
 })
