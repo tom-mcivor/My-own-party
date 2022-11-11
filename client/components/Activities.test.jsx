@@ -1,23 +1,34 @@
-import nock from 'nock'
+
+import React from "react"
 
 
-import { getActivities } from '../apiClient'
+import { screen, render } from "@testing-library/react"
 
 
-// describe('geActivity', () => {
-it('gets a random activity from the api', () => {
-  const scope = nock('https://www.boredapi.com/api/activity')
-    .get('/')
-    .reply(200, {
-      activity: 'Look at your finances and find one way to save money',
-    })
+import Activities from './Activities.jsx'
 
-  return getActivities().then((boredActivity) => {
-    expect(boredActivity).toContain(
-      'Look at your finances and find one way to save money'
-    )
-    expect(scope.isDone()).toBe(true)
+describe('Color component tests:', () => {
+  it('displays the color prop as text', () => {
+    const props = {
+      color: 'purple'
+    }
+
+    render(<Activities {...props}></Activities>)
+
+    const colorHeading = screen.getByRole('heading')
+    expect(colorHeading).toBeInTheDocument()
+    
+  expect(colorHeading).toHaveTextContent(props.color)
+  })
+  it('displays the color prop as text2', () => {
+    const props = {
+      color: 'red'
+    }
+
+    render(<Activities {...props}></Activities>)
+
+    const colorHeading = screen.getByRole('heading')
+    expect(colorHeading).toBeInTheDocument()
+    expect(colorHeading).toHaveTextContent(props.Activities)
   })
 })
-// })
-

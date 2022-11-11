@@ -6,7 +6,7 @@ import { getActivities } from './apiClient'
 
 
 // describe('geActivity', () => {
-it('gets a random activity from the api', () => {
+it('gets activity from the api', () => {
   const scope = nock('https://www.boredapi.com/api/activity')
     .get('/')
     .reply(200, {
